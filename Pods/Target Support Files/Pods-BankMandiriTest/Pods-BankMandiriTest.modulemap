@@ -1,0 +1,6 @@
+framework module Pods_BankMandiriTest {
+  umbrella header "Pods-BankMandiriTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
