@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CommentCell" id="gTV-IL-0wX" customClass="CommentCell" customModule="BankMandiriTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="233" height="109"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="233" height="109"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spQ-yb-ivW">
+                        <rect key="frame" x="0.0" y="0.0" width="233" height="109"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADa-p1-TyL">
+                                <rect key="frame" x="8" y="86" width="40" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9S-xr-sgS">
+                                <rect key="frame" x="8" y="8" width="217" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="e9S-xr-sgS" secondAttribute="trailing" constant="8" id="EzA-At-fer"/>
+                            <constraint firstAttribute="bottom" secondItem="ADa-p1-TyL" secondAttribute="bottom" constant="8" id="Hes-62-2yp"/>
+                            <constraint firstItem="e9S-xr-sgS" firstAttribute="leading" secondItem="spQ-yb-ivW" secondAttribute="leading" constant="8" id="rm6-Jr-cUV"/>
+                            <constraint firstItem="e9S-xr-sgS" firstAttribute="top" secondItem="spQ-yb-ivW" secondAttribute="top" constant="8" id="rvN-Tc-xLo"/>
+                            <constraint firstItem="ADa-p1-TyL" firstAttribute="leading" secondItem="spQ-yb-ivW" secondAttribute="leading" constant="8" id="t0d-as-MIw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="spQ-yb-ivW" secondAttribute="trailing" id="M7t-FH-sCL"/>
+                <constraint firstItem="spQ-yb-ivW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QNq-rs-ewP"/>
+                <constraint firstItem="spQ-yb-ivW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Rvc-4c-e1x"/>
+                <constraint firstAttribute="bottom" secondItem="spQ-yb-ivW" secondAttribute="bottom" id="Yvc-rr-E5g"/>
+            </constraints>
+            <size key="customSize" width="233" height="109"/>
+            <connections>
+                <outlet property="containerView" destination="spQ-yb-ivW" id="6za-iO-gSH"/>
+                <outlet property="lblAuthor" destination="ADa-p1-TyL" id="p8c-zI-BRk"/>
+                <outlet property="lblComment" destination="e9S-xr-sgS" id="Li9-3s-UKl"/>
+            </connections>
+            <point key="canvasLocation" x="264.49275362318843" y="97.433035714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

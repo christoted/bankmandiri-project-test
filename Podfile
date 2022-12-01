@@ -12,5 +12,5 @@ target 'BankMandiriTest' do
 	pod 'SnapKit', '~> 5.0.0'
 	pod 'Alamofire'
 	pod "BSImagePicker", "~> 3.1"
-
+	pod 'youtube-ios-player-helper-swift'
 end
