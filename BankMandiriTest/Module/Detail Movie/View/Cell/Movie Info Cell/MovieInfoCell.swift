@@ -9,18 +9,18 @@ import UIKit
 import youtube_ios_player_helper_swift
 import Kingfisher
 
-class MovieInfoCell: UICollectionViewCell {
-    @IBOutlet weak var lblOverview: UILabel!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var lblVote: UILabel!
-    @IBOutlet weak var lblTagline: UILabel!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var ivMovie: UIImageView!
-    @IBOutlet var playerView: YTPlayerView!
+internal class MovieInfoCell: UICollectionViewCell {
+    @IBOutlet internal weak var lblOverview: UILabel!
+    @IBOutlet internal weak var containerView: UIView!
+    @IBOutlet internal weak var lblVote: UILabel!
+    @IBOutlet internal weak var lblTagline: UILabel!
+    @IBOutlet internal weak var lblTitle: UILabel!
+    @IBOutlet internal weak var ivMovie: UIImageView!
+    @IBOutlet internal var playerView: YTPlayerView!
     
-    static let identifier = "MovieInfoCell"
+    internal static let identifier = "MovieInfoCell"
 
-    override func awakeFromNib() {
+    override internal func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         containerView.layer.cornerRadius = 8
@@ -28,7 +28,7 @@ class MovieInfoCell: UICollectionViewCell {
         playerView.layer.cornerRadius = 8
     }
     
-    func setupData(movie: MovieResponse?, video: VideoResult?) {
+    internal func setupData(movie: MovieResponse?, video: VideoResult?) {
         guard let movie = movie else {
             return
         }

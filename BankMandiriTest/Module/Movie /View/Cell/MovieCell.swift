@@ -8,23 +8,23 @@
 import UIKit
 import Kingfisher
 
-class MovieCell: UICollectionViewCell {
+internal class MovieCell: UICollectionViewCell {
 
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var lblStatus: UILabel!
-    @IBOutlet weak var lblReleaseDate: UILabel!
-    @IBOutlet weak var lblTagline: UILabel!
-    @IBOutlet weak var ivMovie: UIImageView!
-    @IBOutlet weak var lblTitle: UILabel!
-    static let identifier = "MovieCell"
-    override func awakeFromNib() {
+    @IBOutlet internal weak var containerView: UIView!
+    @IBOutlet internal weak var lblStatus: UILabel!
+    @IBOutlet internal weak var lblReleaseDate: UILabel!
+    @IBOutlet internal weak var lblTagline: UILabel!
+    @IBOutlet internal weak var ivMovie: UIImageView!
+    @IBOutlet internal weak var lblTitle: UILabel!
+    internal static let identifier = "MovieCell"
+    override internal func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         ivMovie.layer.cornerRadius = 8
         containerView.layer.cornerRadius = 8
     }
     
-    func setupMovie(movie: MovieResult) {
+    internal func setupMovie(movie: MovieResult) {
         let posterURL = Util.shared.getBaseURLImage() + "\(movie.posterPath ?? "")"
         lblTitle.text = movie.originalTitle ?? ""
         ivMovie.kf.setImage(with: URL(string: posterURL), placeholder: UIImage(named: ""), options: [.cacheOriginalImage])

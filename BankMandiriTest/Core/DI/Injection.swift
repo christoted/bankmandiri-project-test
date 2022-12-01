@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Injection {
+internal class Injection {
     static let shared = Injection()
     
     private func provideRepistory() -> MovieRepositoryProtocol {

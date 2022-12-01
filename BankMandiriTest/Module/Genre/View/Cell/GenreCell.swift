@@ -7,20 +7,20 @@
 
 import UIKit
 
-class GenreCell: UICollectionViewCell {
+internal class GenreCell: UICollectionViewCell {
 
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet internal weak var lblTitle: UILabel!
+    @IBOutlet internal weak var containerView: UIView!
     
-    static let identifier = "GenreCell"
-    override func awakeFromNib() {
+    internal static let identifier = "GenreCell"
+    override internal func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         containerView.layer.cornerRadius = 8
         containerView.layer.borderWidth = 0.1
     }
     
-    func setupGenre(genre: String) {
+    internal func setupGenre(genre: String) {
         lblTitle.text = genre
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class GenrePresenter {
+internal class GenrePresenter {
 
   private let disposeBag = DisposeBag()
   private let router = GenreRouter()
@@ -25,13 +25,13 @@ class GenrePresenter {
     self.movieUseCase = movieUseCase
   }
   
-    func getListGenre() {
+    internal func getListGenre() {
         movieUseCase.getListGenre().subscribe(onNext: { [weak self] data in
             self?.onGetListGenreSuccessSubject.onNext(data.genres)
         }).disposed(by: disposeBag)
     }
     
-    func onTapGenreToListMovie(genre: String, completion: (String) -> ()) {
+    internal func onTapGenreToListMovie(genre: String, completion: (String) -> ()) {
         router.goToListMovieByGenre(genre: genre) { genre in
             completion(genre)
         }

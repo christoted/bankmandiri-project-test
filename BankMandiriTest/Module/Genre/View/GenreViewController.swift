@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class GenreViewController: UIViewController {
+internal class GenreViewController: UIViewController {
     
     @IBOutlet weak var cvGenre: UICollectionView!
     private var presenter: GenrePresenter
@@ -55,11 +55,11 @@ class GenreViewController: UIViewController {
 }
 
 extension GenreViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listGenre.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = cvGenre.dequeueReusableCell(withReuseIdentifier: GenreCell.identifier, for: indexPath) as? GenreCell else {
             fatalError()
         }
@@ -71,7 +71,7 @@ extension GenreViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: 150, height: 60)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let genre = listGenre[indexPath.row].id ?? 0
         presenter.onTapGenreToListMovie(genre: "\(String(describing: genre))") { genreID in
             print(genreID)

@@ -7,8 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct ReviewResponse: Codable {
+internal struct ReviewResponse: Codable {
     let id, page: Int
     let results: [ReviewData]
     let totalPages, totalResults: Int
@@ -20,8 +19,7 @@ struct ReviewResponse: Codable {
     }
 }
 
-// MARK: - Result
-struct ReviewData: Codable {
+internal struct ReviewData: Codable {
     let author: String?
     let authorDetails: AuthorDetails
     let content, createdAt, id, updatedAt: String?
@@ -38,8 +36,7 @@ struct ReviewData: Codable {
     }
 }
 
-// MARK: - AuthorDetails
-struct AuthorDetails: Codable {
+internal struct AuthorDetails: Codable {
     let name, username: String?
     let avatarPath: String?
     let rating: Double?

@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import RxSwift
 
-protocol MovieRemoteDataSourceProtocol {
+internal protocol MovieRemoteDataSourceProtocol {
     func getListGenre() -> Observable<GenreResponse>
     func getDiscoverMovieByGenre(genreID: String, page: Int) -> Observable<DiscoverResponse>
     func getMovieById(movieID: String) -> Observable<MovieResponse>

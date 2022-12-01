@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieResponse: Codable {
+internal struct MovieResponse: Codable {
     let adult: Bool?
     let backdropPath: String?
     let belongsToCollection: BelongsToCollection?
@@ -48,8 +48,7 @@ struct MovieResponse: Codable {
     }
 }
 
-// MARK: - BelongsToCollection
-struct BelongsToCollection: Codable {
+internal struct BelongsToCollection: Codable {
     let id: Int?
     let name, posterPath, backdropPath: String?
 
@@ -60,8 +59,7 @@ struct BelongsToCollection: Codable {
     }
 }
 
-// MARK: - ProductionCompany
-struct ProductionCompany: Codable {
+internal struct ProductionCompany: Codable {
     let id: Int?
     let logoPath, name, originCountry: String?
 
@@ -73,8 +71,7 @@ struct ProductionCompany: Codable {
     }
 }
 
-// MARK: - ProductionCountry
-struct ProductionCountry: Codable {
+internal struct ProductionCountry: Codable {
     let iso3166_1, name: String?
 
     enum CodingKeys: String, CodingKey {
@@ -83,8 +80,7 @@ struct ProductionCountry: Codable {
     }
 }
 
-// MARK: - SpokenLanguage
-struct SpokenLanguage: Codable {
+internal struct SpokenLanguage: Codable {
     let englishName, iso639_1, name: String?
 
     enum CodingKeys: String, CodingKey {

@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-class GenreRouter {
+internal class GenreRouter {
     init() {
         
     }
     
-    func goToListMovieByGenre(genre: String, completion: ((String) -> ())) {
+    internal func goToListMovieByGenre(genre: String, completion: ((String) -> ())) {
         completion(genre)
     }
 }

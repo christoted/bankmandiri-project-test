@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Util {
+internal class Util {
     static let shared = Util()
     
     internal func getAPIKey() -> String {

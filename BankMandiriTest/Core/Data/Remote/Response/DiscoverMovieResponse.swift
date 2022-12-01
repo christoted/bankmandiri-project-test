@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct DiscoverResponse: Codable {
+internal struct DiscoverResponse: Codable {
     let page: Int
     let results: [MovieResult]
     let totalPages, totalResults: Int
@@ -21,7 +21,7 @@ struct DiscoverResponse: Codable {
 }
 
 // MARK: - Result
-struct MovieResult: Codable {
+internal struct MovieResult: Codable {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]

@@ -8,13 +8,15 @@
 import UIKit
 import RxSwift
 
-class MovieViewController: UIViewController {
+internal class MovieViewController: UIViewController {
     
-    @IBOutlet weak var cvMovie: UICollectionView!
+    @IBOutlet weak internal var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak internal var cvMovie: UICollectionView!
     private var presenter: MoviePresenter
     private var genreID: String
     private let disposeBag = DisposeBag()
     private var listMovie: [MovieResult] = []
+   
     var totalItems = 0
     var countPage = 1
     
@@ -29,7 +31,7 @@ class MovieViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
 
        setupRedux()
@@ -37,11 +39,14 @@ class MovieViewController: UIViewController {
     }
     
     private func setupRedux() {
+        activityIndicator.startAnimating()
         presenter.getListMovieByGenre(genreID: genreID)
-        presenter.onGetListMovieSuccessDriver.drive(onNext: { data in
-            self.listMovie = data
-            self.totalItems = data.count
-            self.cvMovie.reloadData()
+        presenter.onGetListMovieSuccessDriver.drive(onNext: {[weak self] data in
+            self?.listMovie = data
+            self?.totalItems = data.count
+            self?.cvMovie.reloadData()
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.hidesWhenStopped = true
         }).disposed(by: disposeBag)
     }
     
@@ -60,11 +65,11 @@ class MovieViewController: UIViewController {
 }
 
 extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listMovie.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.row == listMovie.count - 1 {
             if totalItems > listMovie.count - 1 {
@@ -113,15 +118,5 @@ extension MovieViewController: UICollectionViewDelegate, UICollectionViewDataSou
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
             return UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         
-    }
-    
-    private func createSpinnerFooter() -> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
-        let spinner = UIActivityIndicatorView()
-        spinner.center = footerView.center
-        footerView.addSubview(spinner)
-        spinner.startAnimating()
-        
-        return footerView
     }
 }

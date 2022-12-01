@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MoviePresenter {
+internal class MoviePresenter {
 
   private let disposeBag = DisposeBag()
   private let router = MovieRouter()
@@ -28,7 +28,7 @@ class MoviePresenter {
     self.movieUseCase = movieUseCase
   }
   
-    func getListMovieByGenre(genreID: String) {
+    internal func getListMovieByGenre(genreID: String) {
         movieUseCase.getDiscoverMovieByGenre(genreID: genreID, page: page.value)
             .observe(on: ConcurrentMainScheduler.instance)
             .subscribe(on: MainScheduler.instance)
@@ -37,7 +37,7 @@ class MoviePresenter {
         }).disposed(by: disposeBag)
     }
     
-    func refetchListMovieByGenre(genreID: String) {
+    internal func refetchListMovieByGenre(genreID: String) {
         tempListMovieByGenre.accept([])
         movieUseCase.getDiscoverMovieByGenre(genreID: genreID, page: page.value)
             .observe(on: ConcurrentMainScheduler.instance)
@@ -48,7 +48,7 @@ class MoviePresenter {
         }).disposed(by: disposeBag)
     }
     
-    func onTapListMovieToMovieDetail(movieID: Int, completion: (String)->()) {
+    internal func onTapListMovieToMovieDetail(movieID: Int, completion: (String)->()) {
         router.goToDetailMovie(movieID: "\(movieID)") { genre in
             completion(genre)
         }

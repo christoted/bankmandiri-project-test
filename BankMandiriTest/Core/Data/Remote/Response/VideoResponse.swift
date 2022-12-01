@@ -7,14 +7,12 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct VideoResponse: Codable {
+internal struct VideoResponse: Codable {
     let id: Int
     let results: [VideoResult]
 }
 
-// MARK: - Result
-struct VideoResult: Codable {
+internal struct VideoResult: Codable {
     let iso639_1: String?
     let iso3166_1: String?
     let name, key: String?

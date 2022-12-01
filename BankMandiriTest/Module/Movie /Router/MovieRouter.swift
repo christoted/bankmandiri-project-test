@@ -7,12 +7,12 @@
 
 import Foundation
 
-class MovieRouter {
+internal class MovieRouter {
     init() {
         
     }
     
-    func goToDetailMovie(movieID: String, completion: (String)->()) {
+    internal func goToDetailMovie(movieID: String, completion: (String)->()) {
         completion(movieID)
     }
 }

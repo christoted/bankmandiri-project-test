@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-protocol MovieUseCase {
+internal protocol MovieUseCase {
 
     func getListGenre() -> Observable<GenreResponse>
     func getDiscoverMovieByGenre(genreID: String, page: Int) -> Observable<DiscoverResponse>
@@ -18,7 +18,7 @@ protocol MovieUseCase {
 
 }
 
-class MovieInteractor: MovieUseCase {
+internal class MovieInteractor: MovieUseCase {
 
   private let repository: MovieRepositoryProtocol
     
@@ -44,8 +44,4 @@ class MovieInteractor: MovieUseCase {
     internal func getVideo(movieID: String) -> Observable<VideoResponse> {
         return repository.getVideo(movieID: movieID)
     }
-    
- 
-
-    
 }

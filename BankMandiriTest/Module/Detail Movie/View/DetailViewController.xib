@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="BankMandiriTest" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="Zae-ye-Ndb" id="Xag-ZQ-Lbj"/>
                 <outlet property="cvDetail" destination="08z-EQ-1hX" id="tTX-PA-eqc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,6 +30,9 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Zae-ye-Ndb">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,8 +41,10 @@
                 <constraint firstItem="08z-EQ-1hX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CmB-9N-M1b"/>
                 <constraint firstItem="08z-EQ-1hX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FUw-aV-bcM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="08z-EQ-1hX" secondAttribute="bottom" id="dWO-qu-cs0"/>
+                <constraint firstItem="Zae-ye-Ndb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nWB-XH-NqN"/>
+                <constraint firstItem="Zae-ye-Ndb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zFC-cQ-bMe"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="78"/>
+            <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
         </view>
     </objects>
     <resources>

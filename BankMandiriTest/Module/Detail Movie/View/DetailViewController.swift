@@ -8,15 +8,16 @@
 import UIKit
 import RxSwift
 
-class DetailViewController: UIViewController {
+internal class DetailViewController: UIViewController {
     
-    @IBOutlet weak var cvDetail: UICollectionView!
+    @IBOutlet internal weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet internal weak var cvDetail: UICollectionView!
     private var presenter: DetailPresenter
     private var movieID: String
     private let disposeBag = DisposeBag()
-    var movieResponse: MovieResponse?
-    var videoResult: VideoResult?
-    var listReview: [ReviewData] = []
+    private var movieResponse: MovieResponse?
+    private var videoResult: VideoResult?
+    private var listReview: [ReviewData] = []
     
     internal init(presenter: DetailPresenter, movieID: String) {
         self.presenter = presenter
@@ -28,7 +29,7 @@ class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -37,11 +38,14 @@ class DetailViewController: UIViewController {
     }
     
     private func setupRedux() {
+        activityIndicator.startAnimating()
         presenter.getMovieDetail(movieID: movieID)
         presenter.getUserReview(movieID: movieID, page: 1)
         presenter.getVideo(movieID: movieID)
         
         presenter.onGetMovieDetailSuccessDriver.drive(onNext: { [weak self] data in
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.hidesWhenStopped = true
             self?.movieResponse = data
             self?.cvDetail.reloadSections(IndexSet(integer: 0))
         }).disposed(by: disposeBag)
@@ -73,7 +77,7 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
@@ -82,11 +86,11 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    internal func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:  guard let cell = cvDetail.dequeueReusableCell(withReuseIdentifier: MovieInfoCell.identifier, for: indexPath) as? MovieInfoCell else {
             fatalError()
