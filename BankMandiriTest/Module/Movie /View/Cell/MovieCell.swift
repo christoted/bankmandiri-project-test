@@ -27,7 +27,7 @@ class MovieCell: UICollectionViewCell {
     func setupMovie(movie: MovieResult) {
         let posterURL = Util.shared.getBaseURLImage() + "\(movie.posterPath ?? "")"
         lblTitle.text = movie.originalTitle ?? ""
-        ivMovie.kf.setImage(with: URL(string: posterURL), placeholder: UIImage(named: ""), options: [.cacheOriginalImage, .loadDiskFileSynchronously])
+        ivMovie.kf.setImage(with: URL(string: posterURL), placeholder: UIImage(named: ""), options: [.cacheOriginalImage])
         lblTagline.text = "Popularity: \(movie.popularity ?? 0.0)"
         lblReleaseDate.text = movie.releaseDate ?? ""
         lblStatus.text = movie.originalLanguage ?? ""
